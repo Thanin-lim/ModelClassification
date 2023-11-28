@@ -53,7 +53,7 @@ else:
 
     df = pd.read_csv(iris_file)
     df1=df.copy()
-    df2=df.copy()
+    df2=pd.read_csv(iris_file)
     le = LabelEncoder()
     cat = df.select_dtypes(include='object').columns.tolist()
     number = df.select_dtypes(exclude="object").columns
