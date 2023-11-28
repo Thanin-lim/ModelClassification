@@ -18,4 +18,3 @@ watchdog
 st-pages
 scikit-learn
 imblearn
-openpyxlpi
