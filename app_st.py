@@ -42,7 +42,7 @@ st.write("This app uses 6 inputs to predict the Variety of Iris using "
          " to get started!")
 
 iris_file = st.file_uploader('Upload your own Iris data')
-# df1=pd.read_csv('1-31Mar-30Sep2022 copy.csv')
+df1=pd.read_csv('1-31Mar-30Sep2022 copy.csv')
 if iris_file is None:
     rf_pickle = open('random_forest_iris.pickle', 'rb')
     map_pickle = open('output_iris.pickle', 'rb')
@@ -90,37 +90,6 @@ else:
     score = round(accuracy_score(y_pred, y_test), 2)
     textscore = '<p style="font-family:Courier; color:Black; font-size: 16px;">We trained a Random Forest model on these data ,it has a Accuracy of {}! Use the inputs below to try out the model.</p>'
     st.write(textscore.format(score), unsafe_allow_html=True)
-    choices = ['INSTALL NUM',
-               'INSTALL SUM FINAL',
-               'HP VAT SUM',
-               'YEARS']
-
-    selected_x_var = st.selectbox('เลือก แกน x', (choices))
-    selected_y_var = st.selectbox('เลือก แกน y', (choices))
-
-    st.subheader('ข้อมูลตัวอย่าง')
-    st.write(df)
-
-    sns.set_style('darkgrid')
-    markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
-    markers1 = {'Smart Phone': "o", 'Tablet': "s", 'Laptop': "v"}
-    fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df,
-                         x=selected_x_var, y=selected_y_var,
-                         hue='STATUS', markers=markers, style='STATUS')
-    plt.xlabel(selected_x_var)
-    plt.ylabel(selected_y_var)
-    plt.title("Status")
-    st.pyplot(fig)
-
-    fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df,
-                         x=selected_x_var, y=selected_y_var,
-                         hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
-    plt.xlabel(selected_x_var)
-    plt.ylabel(selected_y_var)
-    plt.title("Device")
-    st.pyplot(fig)
 
 with st.form('user_inputs'):
     # year = st.number_input(
@@ -156,34 +125,34 @@ else:
     f='ลูกหนี้เสีย'
     textpredict = '<p style="font-family:Courier; color:Black; font-size: 20px;">We predict your Customer is of the {} </p>'
     st.markdown(textpredict.format(f), unsafe_allow_html=True)
-# choices = ['INSTALL NUM',
-#                'INSTALL SUM FINAL',
-#                'HP VAT SUM',
-#                'YEARS']
-#
-# selected_x_var = st.selectbox('เลือก แกน x', (choices))
-# selected_y_var = st.selectbox('เลือก แกน y', (choices))
-#
-# st.subheader('ข้อมูลตัวอย่าง')
-# st.write(df)
-#
-# sns.set_style('darkgrid')
-# markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
-# markers1 = {'Smart Phone': "o", 'Tablet': "s",'Laptop':"v"}
-# fig, ax = plt.subplots()
-# ax = sns.scatterplot(data=df,
-#                          x=selected_x_var, y=selected_y_var,
-#                          hue='STATUS', markers=markers, style='STATUS')
-# plt.xlabel(selected_x_var)
-# plt.ylabel(selected_y_var)
-# plt.title("Status")
-# st.pyplot(fig)
-#
-# fig, ax = plt.subplots()
-# ax = sns.scatterplot(data=df,
-#                          x=selected_x_var, y=selected_y_var,
-#                          hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
-# plt.xlabel(selected_x_var)
-# plt.ylabel(selected_y_var)
-# plt.title("Device")
-# st.pyplot(fig)
+choices = ['INSTALL NUM',
+               'INSTALL SUM FINAL',
+               'HP VAT SUM',
+               'YEARS']
+
+selected_x_var = st.selectbox('เลือก แกน x', (choices))
+selected_y_var = st.selectbox('เลือก แกน y', (choices))
+
+st.subheader('ข้อมูลตัวอย่าง')
+st.write(df1)
+
+sns.set_style('darkgrid')
+markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
+markers1 = {'Smart Phone': "o", 'Tablet': "s",'Laptop':"v"}
+fig, ax = plt.subplots()
+ax = sns.scatterplot(data=df1,
+                         x=selected_x_var, y=selected_y_var,
+                         hue='STATUS', markers=markers, style='STATUS')
+plt.xlabel(selected_x_var)
+plt.ylabel(selected_y_var)
+plt.title("Status")
+st.pyplot(fig)
+
+fig, ax = plt.subplots()
+ax = sns.scatterplot(data=df1,
+                         x=selected_x_var, y=selected_y_var,
+                         hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
+plt.xlabel(selected_x_var)
+plt.ylabel(selected_y_var)
+plt.title("Device")
+st.pyplot(fig)
