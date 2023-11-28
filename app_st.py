@@ -134,13 +134,13 @@ selected_x_var = st.selectbox('เลือก แกน x', (choices))
 selected_y_var = st.selectbox('เลือก แกน y', (choices))
 
 st.subheader('ข้อมูลตัวอย่าง')
-st.write(iris_file)
+st.write(df)
 
 sns.set_style('darkgrid')
 markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
 markers1 = {'Smart Phone': "o", 'Tablet': "s",'Laptop':"v"}
 fig, ax = plt.subplots()
-ax = sns.scatterplot(data=iris_file,
+ax = sns.scatterplot(data=df,
                          x=selected_x_var, y=selected_y_var,
                          hue='STATUS', markers=markers, style='STATUS')
 plt.xlabel(selected_x_var)
@@ -149,7 +149,7 @@ plt.title("Status")
 st.pyplot(fig)
 
 fig, ax = plt.subplots()
-ax = sns.scatterplot(data=iris_file,
+ax = sns.scatterplot(data=df,
                          x=selected_x_var, y=selected_y_var,
                          hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
 plt.xlabel(selected_x_var)
