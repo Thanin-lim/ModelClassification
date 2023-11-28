@@ -140,7 +140,7 @@ sns.set_style('darkgrid')
 markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
 markers1 = {'Smart Phone': "o", 'Tablet': "s",'Laptop':"v"}
 fig, ax = plt.subplots()
-ax = sns.scatterplot(data=df1,
+ax = sns.scatterplot(data=iris_file,
                          x=selected_x_var, y=selected_y_var,
                          hue='STATUS', markers=markers, style='STATUS')
 plt.xlabel(selected_x_var)
