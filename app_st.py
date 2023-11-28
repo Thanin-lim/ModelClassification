@@ -152,9 +152,9 @@ with st.form('user_inputs'):
 rf_pickle = open('random_forest_iris.pickle', 'rb')
 new_prediction =rf.predict([[category, prod_sum_price,install_num, install_sum_final,  hp_vat_sum
                                    ]])
-textpredict = '<p style="font-family:Courier; color:Black; font-size: 20px;">We predict your Customer is of the {} </p>'
-st.markdown(textpredict.format(f), unsafe_allow_html=True)
 prediction_species = unique_penguin_mapping[new_prediction][0]
+textpredict = '<p style="font-family:Courier; color:Black; font-size: 20px;">We predict your Customer is of the {} </p>'
+st.markdown(textpredict.format(prediction_species), unsafe_allow_html=True)
 if prediction_species=='Wait Welcome Call':
     s='ลูกหนี้ปกติ'
     textpredict = '<p style="font-family:Courier; color:Black; font-size: 20px;">We predict your Customer is of the {} </p>'
