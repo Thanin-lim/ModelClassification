@@ -134,7 +134,7 @@ selected_x_var = st.selectbox('เลือก แกน x', (choices))
 selected_y_var = st.selectbox('เลือก แกน y', (choices))
 
 st.subheader('ข้อมูลตัวอย่าง')
-st.write(df1)
+st.write(iris_file)
 
 sns.set_style('darkgrid')
 markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
