@@ -53,6 +53,7 @@ else:
 
     df = pd.read_csv(iris_file)
     df1=df.copy()
+    df2=df.copy()
     le = LabelEncoder()
     cat = df.select_dtypes(include='object').columns.tolist()
     number = df.select_dtypes(exclude="object").columns
@@ -97,13 +98,13 @@ else:
     selected_y_var = st.selectbox('เลือก แกน y', (choices))
 
     st.subheader('ข้อมูลตัวอย่าง')
-    st.write(df1)
+    st.write(df2)
 
     sns.set_style('darkgrid')
     markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
     markers1 = {'Smart Phone': "o", 'Tablet': "s", 'Laptop': "v"}
     fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df1,
+    ax = sns.scatterplot(data=df2,
                          x=selected_x_var, y=selected_y_var,
                          hue='STATUS', markers=markers, style='STATUS')
     plt.xlabel(selected_x_var)
@@ -112,7 +113,7 @@ else:
     st.pyplot(fig)
 
     fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df1,
+    ax = sns.scatterplot(data=df2,
                          x=selected_x_var, y=selected_y_var,
                          hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
     plt.xlabel(selected_x_var)
