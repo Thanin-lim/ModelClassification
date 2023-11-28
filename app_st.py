@@ -42,7 +42,7 @@ st.write("This app uses 6 inputs to predict the Variety of Iris using "
          " to get started!")
 
 iris_file = st.file_uploader('Upload your own Iris data')
-df1=pd.read_csv('/Users/comseven/PycharmProjects/pythonProject1/pythonProject/pythonProject/1-31Mar-30Sep2022.csv')
+# df1=pd.read_csv('/Users/comseven/PycharmProjects/pythonProject1/pythonProject/pythonProject/1-31Mar-30Sep2022.csv')
 if iris_file is None:
     rf_pickle = open('random_forest_iris.pickle', 'rb')
     map_pickle = open('output_iris.pickle', 'rb')
