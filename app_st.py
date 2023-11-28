@@ -149,7 +149,7 @@ plt.title("Status")
 st.pyplot(fig)
 
 fig, ax = plt.subplots()
-ax = sns.scatterplot(data=df1,
+ax = sns.scatterplot(data=iris_file,
                          x=selected_x_var, y=selected_y_var,
                          hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
 plt.xlabel(selected_x_var)
