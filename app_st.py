@@ -42,7 +42,7 @@ st.write("This app uses 6 inputs to predict the Variety of Iris using "
          " to get started!")
 
 iris_file = st.file_uploader('Upload your own Iris data')
-df1=pd.read_csv('1-31Mar-30Sep2022 copy.csv')
+# df1=pd.read_csv('1-31Mar-30Sep2022 copy.csv')
 if iris_file is None:
     rf_pickle = open('random_forest_iris.pickle', 'rb')
     map_pickle = open('output_iris.pickle', 'rb')
@@ -52,7 +52,7 @@ if iris_file is None:
 else:
 
     df = pd.read_csv(iris_file)
-    df1=df.copy()
+    # df1=df.copy()
     le = LabelEncoder()
     cat = df.select_dtypes(include='object').columns.tolist()
     number = df.select_dtypes(exclude="object").columns
@@ -70,7 +70,7 @@ else:
     x = df_1.drop(['STATUS', 'UNIVERSITY NAME', 'FACULTY NAME', 'LEVEL TYPE', 'BRANCH TYPE',
                 'YEARS','SERIES NAME', 'SUB SERIES NAME', 'COLOR', 'PROD TOTAL AMT'], axis=1)
     y = df['STATUS']
-    yy=df1['STATUS']
+    yy=df['STATUS']
     output, unique_penguin_mapping = pd.factorize(yy)
     smt = SMOTE()
 
@@ -97,13 +97,13 @@ else:
     selected_y_var = st.selectbox('เลือก แกน y', (choices))
 
     st.subheader('ข้อมูลตัวอย่าง')
-    st.write(df1)
+    st.write(df)
 
     sns.set_style('darkgrid')
     markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
     markers1 = {'Smart Phone': "o", 'Tablet': "s", 'Laptop': "v"}
     fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df1,
+    ax = sns.scatterplot(data=df,
                          x=selected_x_var, y=selected_y_var,
                          hue='STATUS', markers=markers, style='STATUS')
     plt.xlabel(selected_x_var)
@@ -112,7 +112,7 @@ else:
     st.pyplot(fig)
 
     fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df1,
+    ax = sns.scatterplot(data=df,
                          x=selected_x_var, y=selected_y_var,
                          hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
     plt.xlabel(selected_x_var)
