@@ -27,7 +27,8 @@ from imblearn.combine import SMOTEENN,SMOTETomek
 
 from sklearn.ensemble import RandomForestClassifier
 import pickle
-df=pd.read_csv('/Users/comseven/PycharmProjects/pythonProject1/pythonProject/pythonProject/1-31Mar-30Sep2022 copy.csv')
+df2=pd.read_csv('//Users/comseven/PycharmProjects/pythonProject1/pythonProject/pythonProject/1-31Mar-30Sep2022.csv')
+df=pd.read_csv('//Users/comseven/PycharmProjects/pythonProject1/pythonProject/pythonProject/1-31Mar-30Sep2022.csv')
 le = LabelEncoder()
 print(df.columns)
 
@@ -51,10 +52,11 @@ from sklearn import tree
 
 x=df_1.drop(['STATUS','UNIVERSITY NAME', 'FACULTY NAME', 'LEVEL TYPE', 'BRANCH TYPE',
         'YEARS','SERIES NAME', 'SUB SERIES NAME', 'COLOR','PROD TOTAL AMT'],axis=1)
-y=df_1['STATUS']
+y=df2['STATUS']
 print(x.columns)
 y, uniques = pd.factorize(y)
-
+print(y)
+print(uniques)
 smt=SMOTE()
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)

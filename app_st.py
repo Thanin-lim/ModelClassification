@@ -42,7 +42,7 @@ st.write("This app uses 6 inputs to predict the Variety of Iris using "
          " to get started!")
 
 iris_file = st.file_uploader('Upload your own Iris data')
-# df1=pd.read_csv('1-31Mar-30Sep2022 copy.csv')
+df1=pd.read_csv('/Users/comseven/PycharmProjects/pythonProject1/pythonProject/pythonProject/1-31Mar-30Sep2022.csv')
 if iris_file is None:
     rf_pickle = open('random_forest_iris.pickle', 'rb')
     map_pickle = open('output_iris.pickle', 'rb')
@@ -50,6 +50,9 @@ if iris_file is None:
     rf = pickle.load(rf_pickle)
     unique_penguin_mapping = pickle.load(map_pickle)
 else:
+    rf_pickle = open('random_forest_iris.pickle', 'rb')
+    map_pickle = open('output_iris.pickle', 'rb')
+    unique_penguin_mapping = pickle.load(map_pickle)
 
     df = pd.read_csv(iris_file)
     df1=df.copy()
@@ -146,6 +149,7 @@ with st.form('user_inputs'):
 
     st.form_submit_button()
 
+rf_pickle = open('random_forest_iris.pickle', 'rb')
 new_prediction =rf.predict([[category, prod_sum_price,install_num, install_sum_final,  hp_vat_sum
                                    ]])
 prediction_species = unique_penguin_mapping[new_prediction][0]
