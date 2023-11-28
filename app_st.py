@@ -53,7 +53,7 @@ else:
 
     df = pd.read_csv(iris_file)
     df1=df.copy()
-    df2=pd.read_csv(iris_file)
+    # df2=pd.read_csv(iris_file)
     le = LabelEncoder()
     cat = df.select_dtypes(include='object').columns.tolist()
     number = df.select_dtypes(exclude="object").columns
@@ -89,37 +89,37 @@ else:
     rf.fit(X_train_sm, y_train_sm)
     y_pred=rf.predict(X_test)
     score = round(accuracy_score(y_pred, y_test), 2)
-    choices = ['INSTALL NUM',
-               'INSTALL SUM FINAL',
-               'HP VAT SUM',
-               'YEARS']
-
-    selected_x_var = st.selectbox('เลือก แกน x', (choices))
-    selected_y_var = st.selectbox('เลือก แกน y', (choices))
-
-    st.subheader('ข้อมูลตัวอย่าง')
-    st.write(df2)
-
-    sns.set_style('darkgrid')
-    markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
-    markers1 = {'Smart Phone': "o", 'Tablet': "s", 'Laptop': "v"}
-    fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df2,
-                         x=selected_x_var, y=selected_y_var,
-                         hue='STATUS', markers=markers, style='STATUS')
-    plt.xlabel(selected_x_var)
-    plt.ylabel(selected_y_var)
-    plt.title("Status")
-    st.pyplot(fig)
-
-    fig, ax = plt.subplots()
-    ax = sns.scatterplot(data=df2,
-                         x=selected_x_var, y=selected_y_var,
-                         hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
-    plt.xlabel(selected_x_var)
-    plt.ylabel(selected_y_var)
-    plt.title("Device")
-    st.pyplot(fig)
+    # choices = ['INSTALL NUM',
+    #            'INSTALL SUM FINAL',
+    #            'HP VAT SUM',
+    #            'YEARS']
+    #
+    # selected_x_var = st.selectbox('เลือก แกน x', (choices))
+    # selected_y_var = st.selectbox('เลือก แกน y', (choices))
+    #
+    # st.subheader('ข้อมูลตัวอย่าง')
+    # st.write(df2)
+    #
+    # sns.set_style('darkgrid')
+    # markers = {'Wait Welcome Call': "v", 'Overdue 1': "s"}
+    # markers1 = {'Smart Phone': "o", 'Tablet': "s", 'Laptop': "v"}
+    # fig, ax = plt.subplots()
+    # ax = sns.scatterplot(data=df2,
+    #                      x=selected_x_var, y=selected_y_var,
+    #                      hue='STATUS', markers=markers, style='STATUS')
+    # plt.xlabel(selected_x_var)
+    # plt.ylabel(selected_y_var)
+    # plt.title("Status")
+    # st.pyplot(fig)
+    #
+    # fig, ax = plt.subplots()
+    # ax = sns.scatterplot(data=df2,
+    #                      x=selected_x_var, y=selected_y_var,
+    #                      hue='CATEGORY NAME', markers=markers1, style='CATEGORY NAME')
+    # plt.xlabel(selected_x_var)
+    # plt.ylabel(selected_y_var)
+    # plt.title("Device")
+    # st.pyplot(fig)
     textscore = '<p style="font-family:Courier; color:Black; font-size: 16px;">We trained a Random Forest model on these data ,it has a Accuracy of {}! Use the inputs below to try out the model.</p>'
     st.write(textscore.format(score), unsafe_allow_html=True)
 
