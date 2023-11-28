@@ -55,7 +55,7 @@ x=df_1.drop(['STATUS','UNIVERSITY NAME', 'FACULTY NAME', 'LEVEL TYPE', 'BRANCH T
 y=df2['STATUS']
 print(x.columns)
 y, uniques = pd.factorize(y)
-print(y)
+
 print(uniques)
 smt=SMOTE()
 
